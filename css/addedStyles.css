@@ -1,0 +1,7 @@
+a.mainPageLink{
+  border-bottom: 1px dotted red; text-decoration: none;
+}
+
+a:hover.mainPageLink {
+  color: red;
+}

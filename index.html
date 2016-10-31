@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Dominik Kalisch">
+  <title>SMC - Local Hack Day 2016</title>
+
+  <!-- Bootstrap -->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Modernizr -->
+  <script src="js/modernizr.custom.js"></script>
+
+  <!-- Theme Styles -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href="css/plugins/isotope.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/media.css" rel="stylesheet">
+  <link href="css/addedStyles.css" rel="stylesheet">
+  
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; color: #606060; -webkit-text-stroke: #606060}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; -webkit-text-stroke: #000000}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; -webkit-text-stroke: #000000}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; -webkit-text-stroke: #000000}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; -webkit-text-stroke: #606060; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+    table.t1 {border-collapse: collapse}
+    td.td1 {width: 106.0px; height: 11.0px; background-color: #ae1916; border-style: solid; border-width: 1.0px 0.0px 1.0px 1.0px; border-color: #a0a0a0 transparent #929292 #a0a0a0; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td2 {width: 450.0px; height: 11.0px; background-color: #ae1916; border-style: solid; border-width: 1.0px 0.0px 1.0px 0.0px; border-color: #a0a0a0 transparent #929292 transparent; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td3 {width: 472.0px; height: 11.0px; background-color: #ae1916; border-style: solid; border-width: 1.0px 1.0px 1.0px 0.0px; border-color: #a0a0a0 #a0a0a0 #929292 transparent; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td4 {width: 106.0px; height: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #929292 #929292 #a0a0a0 #a0a0a0; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td5 {width: 450.0px; height: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #929292 #c0c0c0 #c0c0c0 #929292; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td6 {width: 471.0px; height: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #929292 #a0a0a0 #c0c0c0 #c0c0c0; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td7 {width: 106.0px; height: 35.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #a0a0a0 #929292 #a0a0a0 #a0a0a0; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td8 {width: 450.0px; height: 35.0px; background-color: #f5f5f5; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #c0c0c0 #c0c0c0 #c0c0c0 #929292; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td9 {width: 471.0px; height: 35.0px; background-color: #f5f5f5; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #c0c0c0 #a0a0a0 #c0c0c0 #c0c0c0; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td10 {width: 106.0px; height: 10.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #a0a0a0 #929292 #a0a0a0 #a0a0a0; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td11 {width: 450.0px; height: 10.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #c0c0c0 #c0c0c0 #c0c0c0 #929292; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td12 {width: 471.0px; height: 10.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #c0c0c0 #a0a0a0 #c0c0c0 #c0c0c0; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td13 {width: 106.0px; height: 23.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #a0a0a0 #929292 #a0a0a0 #a0a0a0; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td14 {width: 450.0px; height: 23.0px; background-color: #f5f5f5; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #c0c0c0 #c0c0c0 #c0c0c0 #929292; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td15 {width: 471.0px; height: 23.0px; background-color: #f5f5f5; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #c0c0c0 #a0a0a0 #c0c0c0 #c0c0c0; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td16 {width: 106.0px; height: 11.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #a0a0a0 #929292 #a0a0a0 #a0a0a0; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td17 {width: 450.0px; height: 35.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #c0c0c0 #c0c0c0 #c0c0c0 #929292; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td18 {width: 471.0px; height: 35.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #c0c0c0 #a0a0a0 #c0c0c0 #c0c0c0; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td19 {width: 106.0px; height: 15.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #a0a0a0 #929292 #a0a0a0 #a0a0a0; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td20 {width: 930.0px; height: 31.0px; background-color: #bfbfbf; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #c0c0c0 #a0a0a0 #c0c0c0 #929292; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td21 {width: 450.0px; height: 23.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #c0c0c0 #c0c0c0 #c0c0c0 #929292; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td22 {width: 471.0px; height: 23.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #c0c0c0 #a0a0a0 #c0c0c0 #c0c0c0; padding: 4.0px 4.0px 4.0px 4.0px}
+    td.td23 {width: 930.0px; height: 31.0px; background-color: #bfbfbf; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #c0c0c0 #a0a0a0 #a0a0a0 #929292; padding: 4.0px 4.0px 4.0px 4.0px}
+  </style>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <link href="css/oldie.css" rel="stylesheet">
+    <![endif]-->
+</head>
+
+<body>
+  <!-- Loader -->
+  <div class="page-loader">
+    <div class="content">
+      <div class="line">
+        <div class="progress"></div>
+      </div>
+      <div class="text">Loading...</div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <div class="navbar one" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- Menu for Tablets / Phones -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+
+        <!-- Items -->
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#intro">Home</a></li>
+          <li><a href="#symposium">About Local Hack Day</a></li>
+          <li><a href="#topic">Topics</a></li>
+          <li><a href="#submit">Register</a></li>
+          <li><a href="#chairs">Chairs</a></li>
+          <li><a href="#support">Supporters</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <!-- Video Background -->
+<section class="intro" id="intro" data-type="video" data-source="kn-1D5z3-Cs" data-on-error="images/intro/static-image.jpg" data-mute="true" data-start="0" data-stop="0" data-overlay="0.4" data-quality="default">
+
+  <!-- Content -->
+  <div class="container">
+    <div class="content">
+      <!-- (1) Video Background -->
+      <div class="text-center">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="video-control animate" id="video-mode">
+              <i class="fa fa-play"></i>
+            </div>
+            <header>
+              <h1 class="offsetTopClear animate">SMC Local Hack Day 2016</h1>
+              <h2 class="text-light animate">Saint Mary's College of California</h2>
+              <h3>December 3, 2016 at <a href="http://www.stmarys-ca.edu" class="mainPageLink">SMC Campus</a> in <a href="#map" class="mainPageLink">Moraga, CA</a></h3>
+            </header>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Magic Mouse :) -->
+  <div class="mouse hidden-xs">
+    <div class="wheel"></div>
+  </div>
+</section>
+
+  <!-- Scheule -->
+  <section class="section schedule" id="symposium">
+    <!-- Container -->
+    <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+            <header class="text-center">
+              <h2>Symposium Schedule</h2>
+            </header>
+          </div>
+          <div class="col-md-10 col-md-offset-1 text-justify">
+              <p>The following table shows the preliminary timeline for the symposium.</p>
+              <table cellspacing="0" cellpadding="0" class="t1">
+            <tbody>
+              <tr>
+                <td valign="middle" class="td1">
+                  <p class="p2"><span class="s1"><b>Time</b></span></p>
+                </td>
+                <td valign="middle" class="td2">
+                  <p class="p2"><span class="s1"><b>Topic</b></span></p>
+                </td>
+                <td valign="middle" class="td3">
+                  <p class="p2"><span class="s1"><b>Author</b></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td4">
+                  <p class="p3"><span class="s1">9:00 AM</span></p>
+                </td>
+                <td valign="top" class="td5">
+                  <p class="p4"><span class="s1">A Holistic Approach to Understand Urban Complexity.</span></p>
+                </td>
+                <td valign="top" class="td6">
+                  <p class="p4"><span class="s1"><b>Dominik Kalisch</b>, Steffen Braun, Alanus von Radecki</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td7">
+                  <p class="p3"><span class="s1">9:30 AM</span></p>
+                </td>
+                <td valign="top" class="td8">
+                  <p class="p4"><span class="s1">An Intelligent Hot-Desking Model Based on Occupancy Sensor Data and its Potential for Social Impact</span></p>
+                </td>
+                <td valign="top" class="td9">
+                  <p class="p4"><span class="s1">Konstantinos Maraslis, Peter Cooper, <b>Theo Tryfonas</b>, George Oikonomou</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td10">
+                  <p class="p3"><span class="s1">10:00 AM</span></p>
+                </td>
+                <td valign="top" class="td11">
+                  <p class="p4"><span class="s1">Collaborative construction of an open Official Gazette</span></p>
+                </td>
+                <td valign="top" class="td12">
+                  <p class="p4"><span class="s1">Gisele Craveiro, José Alcazar, <b>Andrés Martano (VOIP)</b></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td13">
+                  <p class="p3"><span class="s1">10:30 AM</span></p>
+                </td>
+                <td valign="top" class="td14">
+                  <p class="p4"><span class="s1">Data Driven Governments: Creating Value through Open Government Data</span></p>
+                </td>
+                <td valign="top" class="td15">
+                  <p class="p4"><span class="s1"><b>Judie Attard</b>, Fabrizio Orlandi, Sören Auer</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td16">
+                  <p class="p3"><span class="s1">11:00 AM</span></p>
+                </td>
+                <td rowspan="2" valign="top" class="td17">
+                  <p class="p5"><span class="s1"><b>Keynote</b></span></p>
+                  <p class="p5"><span class="s1">Enthralled by the Immediate. Why Humans have not Adopted Smarter Cities solutions faster</span></p>
+                </td>
+                <td rowspan="2" valign="top" class="td18">
+                  <p class="p4"><span class="s1"><b>Mark Dixon</b></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td19">
+                  <p class="p3"><span class="s1">11:30 AM</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td16">
+                  <p class="p3"><span class="s1">12:00 PM</span></p>
+                </td>
+                <td rowspan="2" colspan="2" valign="middle" class="td20">
+                  <p class="p6"><span class="s1"><b>Lunch Break</b></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td16">
+                  <p class="p3"><span class="s1">12:30 PM</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td13">
+                  <p class="p3"><span class="s1">1:00 PM</span></p>
+                </td>
+                <td valign="top" class="td21">
+                  <p class="p4"><span class="s1">Characterization of behavioral patterns exploiting description of geographical areas</span></p>
+                </td>
+                <td valign="top" class="td22">
+                  <p class="p4"><span class="s1">Zolzaya Dashdorj, <b>Stanislav Sobolevsky</b></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td13">
+                  <p class="p3"><span class="s1">1:30 PM</span></p>
+                </td>
+                <td valign="top" class="td14">
+                  <p class="p4"><span class="s1">Analysis of customers’ spatial distribution through transaction datasets</span></p>
+                </td>
+                <td valign="top" class="td15">
+                  <p class="p4"><span class="s1">Yuji Yoshimura, Alexander Amini, <b>Stanislav Sobolevsky</b>, Josep Blat, Carlo Ratti</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td7">
+                  <p class="p3"><span class="s1">2:00 PM</span></p>
+                </td>
+                <td valign="top" class="td17">
+                  <p class="p4"><span class="s1">Real-Time Data Collection and Processing of Utility Customer's Power Usage for Improved Demand Response Control</span></p>
+                </td>
+                <td valign="top" class="td18">
+                  <p class="p4"><span class="s1">Shawyun Sariri, Volker Schwarzer, Michael Angelo, Dominik Kalisch, <b>Reza Ghorbani</b></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td13">
+                  <p class="p3"><span class="s1">2:30 PM</span></p>
+                </td>
+                <td valign="top" class="td14">
+                  <p class="p4"><span class="s1">Visualization of Open Urban Data for Illegally Parked Bicycles</span></p>
+                </td>
+                <td valign="top" class="td15">
+                  <p class="p4"><span class="s1">Shusaku Egami, Takahiro Kawamura, Yuichi Sei, Yasuyuki Tahara, Akihiko Ohsuga</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td13">
+                  <p class="p3"><span class="s1">3:00 PM</span></p>
+                </td>
+                <td valign="top" class="td21">
+                  <p class="p4"><span class="s1">Sake Selection Support Application for Countryside Tourism</span></p>
+                </td>
+                <td valign="top" class="td22">
+                  <p class="p4"><span class="s1"><b>Teruyuki Iijima</b>, Takahiro Kawamura, Yuichi Sei, Yasuyuki Tahara, Akihiko Ohsuga</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td16">
+                  <p class="p3"><span class="s1">3:30 PM</span></p>
+                </td>
+                <td rowspan="2" colspan="2" valign="middle" class="td23">
+                  <p class="p6"><span class="s1"><b>Discussion Groups</b></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top" class="td16">
+                  <p class="p3"><span class="s1">4:00 PM</span></p>
+                </td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section offsetTop" id="symposium">
+    <!-- Container -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <header class="text-center">
+            <h2>What is a Local Hack Day?</h2>
+          </header>
+        </div>
+      </div>
+      <div class="row offsetBottomL">
+        <div class="col-md-10 col-md-offset-1 text-justify">
+          <p>
+           The <a href="https://localhackday.mlh.io" target="_blank">Local Hack</a> day is a 12 hour hack day on Saint Mary's campus that brings together the local hacker community to celebrate building awesome technology. On December 3rd 2016, other students around the world will be simultaneously hosting their own Local Hack Day at their schools, resulting in the single largest day of student hacking ever. Throughout the day, there will be awesome chatrooms and fun activities that you can use to meet students in your local community as well as across the globe.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="topic">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <header class="text-center">
+            <h2>Workshops/h2>
+          </header>
+        </div>
+      </div>
+      <div class="row services">
+
+        <!-- Cell 1 -->
+        <div class="col-md-4 col-sm-4 col-xs-6 text-center offsetTopL animation animation-from-left">
+          <div>
+            <i class="fa fa-share-alt"></i>
+            <header>
+              <h4>HTML</h4>
+            </header>
+            <p class="text-justify">
+              Description HTML
+            </p>
+          </div>
+        </div>
+
+        <!-- Cell 2 -->
+        <div class="col-md-4 col-sm-4 col-xs-6 text-center offsetTopL animation animation-from-left">
+          <div>
+            <i class="fa fa-connectdevelop"></i>
+            <header>
+              <h4>First Steps with LINUX</h4>
+            </header>
+            <p class="text-justify">
+              Description LINUX
+            </p>
+          </div>
+        </div>
+
+        <!-- Cell 3 -->
+        <div class="col-md-4 col-sm-4 col-xs-6 text-center offsetTopL animation animation-from-left">
+          <div>
+            <i class="fa fa-server"></i>
+            <header>
+              <h4>Programming with Python</h4>
+            </header>
+            <p class="text-justify">
+              Description Python
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row services">
+
+        <!-- Cell 4 -->
+        <div class="col-md-4 col-sm-4 col-xs-6 text-center offsetTopL offsetBottomL animation animation-from-left">
+          <div>
+            <i class="fa fa-street-view"></i>
+            <header>
+              <h4>Data Analysis with R</h4>
+            </header>
+            <p class="text-justify">
+              Description R
+            </p>
+          </div>
+        </div>
+
+        <!-- Cell 5 -->
+        <div class="col-md-4 col-sm-4 col-xs-6 text-center offsetTopL offsetBottomL animation animation-from-left">
+          <div>
+            <i class="fa fa-university"></i>
+            <header>
+              <h4>Dressing Up Web Pages</h4>
+            </header>
+            <p class="text-justify">
+              Description Dressing Up Web Pages
+            </p>
+          </div>
+        </div>
+
+        <!-- Cell 6 -->
+        <div class="col-md-4 col-sm-4 col-xs-6 text-center offsetTopL offsetBottomL animation animation-from-left">
+          <div>
+            <i class="fa fa-flask"></i>
+            <header>
+              <h4>App Development</h4>
+            </header>
+            <p class="text-justify">
+              Description App Development
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Info-box (Submit Paper) -->
+  <section class="section info-box" id="submit">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 text-center-xs">
+          <h1>SMC Local Hack Day 2016</h1>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-4 pull-right text-center-xs">
+          <p><a href="https://localhackday.mlh.io/register/?id=moraga&city_name=Moraga%2C%20CA" class="btn btn-primary btn-lg btn-block" target="_blank">Register</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parallax (Contact Info) -->
+  <section class="section parallax" data-image="images/parallax/city.jpg">
+    <div class="parallax-container">
+      <!-- Overlay (You can add class .colored, or delete it) -->
+      <div class="parallax-overlay"></div>
+      <!-- Container -->
+      <div class="container offsetTopX offsetBottomX">
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Symposium Chairs -->
+  <section class="section offsetTop" id="chairs">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <header class="text-center offsetBottom">
+            <h2>Symposium Chairs</h2>
+            <p class="info">
+              If you have any question please let us know.
+            </p>
+          </header>
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="row team">
+        <!-- Cell 1 -->
+        <div class="col-md-4 col-sm-4 col-xs-6 offsetBottomL animation animation-from-bottom">
+          <div class="photo">
+            <img src="images/team/kalisch.jpg" class="img-responsive img-rounded" alt="Photo">
+          </div>
+          <div class="details">
+            <h4>Dominik P.H. Kalisch, PhD</h4>
+            <span>Chair | Saint Mary's College of California</span>
+          </div>
+          <div class="social">
+            <a href="http://twitter.com/dominikkalisch" title="Twitter"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/dominikkalisch" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+            <a href="mailto:dkalisch@stmarys-ca.edu" title="eMail"><i class="fa fa-envelope"></i></a>
+          </div>
+        </div>
+        <!-- Cell 2 -->
+        <div class="col-md-4 col-sm-4 col-xs-6 offsetBottomL animation animation-from-bottom">
+          <div class="photo">
+            <img src="images/team/yung-jae.jpg" class="img-responsive img-rounded" alt="Photo">
+          </div>
+          <div class="details">
+            <h4>Yung-Jae Lee, PhD</h4>
+            <span>Co-Chair | Saint Mary's College of California</span>
+          </div>
+          <div class="social">
+            <a href="https://www.linkedin.com/in/yung-lee-61526710" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+            <a href="mailto:ylee@stmarys-ca.edu" title="eMail"><i class="fa fa-envelope"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Begin MailChimp Signup Form -->
+  <section class="section info-box">
+    <div class="container">
+      <div class="row">
+        <form action="http://urban-systems.us9.list-manage.com/subscribe/post?u=8158727f8d832f2974aa54d3a&amp;id=64da9fd779" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <div class="col-md-3 col-sm-3">
+            <div class="field">
+              <input type="text" id="mce-FNAME" name="FNAME" class="field-name" placeholder="First name">
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <div class="field">
+              <input type="email" id="mce-LNAME" name="LNAME" class="field-name" placeholder="Last name">
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <div class="field">
+              <input type="text" id="mce-EMAIL" name="EMAIL" class="field-phone" placeholder="e-mail">
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <button type="submit" class="btn btn-default" id="contact-submit">Sign up</button>
+          </div>
+          <div style="position: absolute; left: -5000px;">
+            <input type="text" name="b_8158727f8d832f2974aa54d3a_64da9fd779" tabindex="-1" value="">
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!--End MailChimp Signup Form-->
+
+  <!-- Clients -->
+  <section class="section offsetTop offsetBottom" id="support">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <header class="text-center offsetBottom">
+            <h2>Supporters</h2>
+            <p class="info">The following institutions ond organizations support the symposium. If you would like to support us as well, please get in contact with us: dkalisch AT stmarys-ca DOT edu.</p>
+          </header>
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-6 animation animation-from-left">
+          <img src="images/logos/shidlerLogo.gif" width="170" class="img-responsive center-block" alt="Company">
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 animation animation-from-left">
+          <img src="images/logos/mit.jpg" width="180" class="img-responsive center-block" alt="Company">
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 animation animation-from-left">
+          <img src="images/logos/asu.png" width="250" class="img-responsive center-block" alt="Company">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Map -->
+  <section class="section map" id="map">
+    <!-- Map -->
+    <div id="google-map" data-latitude="37.840072" data-longitude="-122.110849"></div>
+    <!-- This Information will show on Click to Map Marker -->
+    <div id="map-info">
+      <div id="content">
+        <div id="siteNotice"></div>
+        <h4 id="firstHeading" class="firstHeading">HICSS Conference</h4>
+        <div id="bodyContent">
+          <p>
+            The SMC Local Hack Day 2016 will take place on the Saint Mary's College of California Campus in Moraga, CA.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer offsetTopS offsetBottomS">
+    <div class="container offsetTopS offsetBottomS">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <!-- Back to Top -->
+          <a class="to-top"><i class="fa fa-angle-up"></i></a>
+          <!-- Copyright -->
+          <span>2016 &copy; Saint Mary's College of California - School of Economics and Business Administration. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/jquery.min.js"></script>
+
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <!-- Google Maps Support -->
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+  <!-- Other Scripts -->
+  <script src="js/retina.min.js"></script>
+  <script src="js/jquery.scrollto.min.js"></script>
+  <script src="js/smoothscroll.js"></script>
+  <script src="js/jquery.mb.ytplayer.js"></script>
+  <script src="js/jquery.parallax.js"></script>
+  <script src="js/jquery.isotope.min.js"></script>
+  <script src="js/jquery.nav.js"></script>
+  <script src="js/jquery.knob.js"></script>
+  <script src="js/jquery.tweet.min.js"></script>
+  <!-- Main Script -->
+  <script src="js/prodo.min.js"></script>
+  <link href="css/colors/sea.css" rel="stylesheet">
+</body>
+
+</html>
