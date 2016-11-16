@@ -1,2 +1,2 @@
-# Complexity
-This is the Webpage for the CompleXity: Technology for Complex Urban System symposium
+# SMC LHD 2016
+This is the web page for the Saint Mary's College of California Local Hack Day.
